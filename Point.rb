@@ -6,12 +6,14 @@ require 'minitest/autorun'
 class Point
 	attr_accessor :x, :y
 	def initialize x, y
-		@x = x
-		@y = y
-
+		@x = x.to_f
+		@y = y.to_f
+		puts @x.class
+	end
+	def valid?
+		@x.class == Float && @y.class == Float
 	end
 end
-
 
 #tests
 describe Point do 
@@ -22,5 +24,5 @@ describe Point do
 	it "creates a valid point" do
 		@a_point.valid?.must_equal true
 	end
-	
+
 end
